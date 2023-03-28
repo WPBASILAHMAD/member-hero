@@ -7,14 +7,10 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import RegistrationForm from "./RegistrationForm";
-interface TabPanelProps {
-  children?: React.ReactNode;
-  dir?: string;
-  index: number;
-  value: number;
-}
+import LoginForm from "./LoginForm";
+import ResetPassword from "./ResetPassword";
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
@@ -34,7 +30,7 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: number) {
+function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
     "aria-controls": `full-width-tabpanel-${index}`,
@@ -45,11 +41,11 @@ export default function FullWidthTabs() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handleChangeIndex = (index: number) => {
+  const handleChangeIndex = (index) => {
     setValue(index);
   };
 
@@ -66,8 +62,8 @@ export default function FullWidthTabs() {
         >
           <Tab label="WPR Registration" {...a11yProps(0)} />
           <Tab label="WPR Login" {...a11yProps(1)} />
-          <Tab label="WPR Account" {...a11yProps(2)} />
-          <Tab label="WPR Password Reset" {...a11yProps(2)} />
+          <Tab label="WPR Profile" {...a11yProps(2)} />
+          <Tab label="WPR Password Reset" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
 
@@ -75,10 +71,13 @@ export default function FullWidthTabs() {
         <RegistrationForm />
       </TabPanel>
       <TabPanel value={value} index={1} dir={theme.direction}>
-        Item Two
+        <LoginForm />
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        Item Three
+        Item 3
+      </TabPanel>
+      <TabPanel value={value} index={3} dir={theme.direction}>
+        <ResetPassword />
       </TabPanel>
     </Box>
   );
