@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 import RegistrationForm from "./RegistrationForm";
 import LoginForm from "./LoginForm";
 import ResetPassword from "./ResetPassword";
-
+import OverviewProfile from "./Profile";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -74,7 +74,7 @@ export default function FullWidthTabs() {
         <LoginForm />
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        Item 3
+        <OverviewProfile />
       </TabPanel>
       <TabPanel value={value} index={3} dir={theme.direction}>
         <ResetPassword />

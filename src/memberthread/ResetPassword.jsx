@@ -10,12 +10,13 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme();
 
-export default function LoginForm() {
+export default function ResetPassword() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -27,17 +28,18 @@ export default function LoginForm() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component={Paper} maxWidth="sm">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 2,
+            marginTop: 10,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            paddingTop: 2,
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -50,50 +52,23 @@ export default function LoginForm() {
             sx={{ mt: 1 }}
           >
             <TextField
+              sx={{ width: "500px" }}
               margin="normal"
               required
-              fullWidth
               id="email"
               label="Email Address"
               name="email"
               autoComplete="email"
               autoFocus
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Login
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ width: "300px", mt: 3, mb: 2 }}
+          >
+            Get New Password
+          </Button>
         </Box>
       </Container>
     </ThemeProvider>

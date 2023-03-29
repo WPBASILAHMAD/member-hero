@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import { Button } from "@mui/material";
-import NavigationBar from "./components/Navbar";
+import NavigationBar from "./memberthread/Navbar";
 function App() {
   return (
     <>
