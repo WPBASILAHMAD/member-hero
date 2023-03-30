@@ -7,17 +7,18 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
+import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import Logout from "@mui/icons-material/Logout";
+import { green, pink } from "@mui/material/colors";
 
 export default function AccountMenu() {
-  const [anchorEl, setAnchorEl] =
-    (React.useState < null) | (HTMLElement > null);
+  const [anchorEl, setAnchorEl] = React.useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(false);
   };
   return (
     <React.Fragment>
@@ -31,7 +32,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <SettingsSuggestIcon sx={{ color: "black" }} />
           </IconButton>
         </Tooltip>
       </Box>

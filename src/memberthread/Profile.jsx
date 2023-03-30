@@ -1,4 +1,5 @@
 import * as React from "react";
+import { styled } from "@mui/material/styles";
 import {
   Box,
   Paper,
@@ -15,8 +16,7 @@ import Grid from "@mui/material/Grid";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import AccountMenu from "../components/menu";
-
+import FadeMenu from "../components/menu";
 const theme = createTheme();
 
 export default function LoginForm() {
@@ -43,30 +43,54 @@ export default function LoginForm() {
             padding: 2,
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
-            <AccountCircleIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Overview
-          </Typography>
+          <Grid container>
+            <Grid xs={5}></Grid>
+            <Grid xs={3}>
+              <Avatar
+                sx={{
+                  m: 1,
+                  bgcolor: "primary.main",
+                  alignItems: "center",
+                  marginLeft: "30px",
+                }}
+              >
+                <AccountCircleIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                Overview
+              </Typography>
+            </Grid>
+            <Grid xs={4} sx={{ paddingLeft: 29 }}>
+              <FadeMenu />
+            </Grid>
+          </Grid>
+
           <Box onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TableContainer sx={{ width: "850px", paddingBottom: 12 }}>
               <Table size="large" aria-label="spanning table">
                 <TableBody>
                   <TableRow>
-                    <TableCell>Username</TableCell>
+                    <TableCell>
+                      <strong>Username</strong>
+                    </TableCell>
                     <TableCell>nmedia</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Email</TableCell>
+                    <TableCell>
+                      <strong>Email</strong>
+                    </TableCell>
                     <TableCell>sales@najeebmedia.com</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>First Name</TableCell>
+                    <TableCell>
+                      <strong>First Name</strong>
+                    </TableCell>
                     <TableCell>Najeeb</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Last Name</TableCell>
+                    <TableCell>
+                      <strong>Last Name</strong>
+                    </TableCell>
                     <TableCell>Ahmad</TableCell>
                   </TableRow>
                 </TableBody>
